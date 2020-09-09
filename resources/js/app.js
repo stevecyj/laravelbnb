@@ -6,7 +6,7 @@ import router from "./routes";
 
 window.Vue = require("vue");
 
-// 這邊不需註冊了
+// 這邊不需註冊了，在 router 註冊了
 // Vue.component(
 //     "example-component",
 //     require("./components/ExampleComponent.vue").default
