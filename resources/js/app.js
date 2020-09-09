@@ -1,8 +1,8 @@
 require("./bootstrap");
 
 import VueRouter from "vue-router";
+import Index from "./pageviews/Index";
 import router from "./routes";
-import Index from "./pageviews/index";
 
 window.Vue = require("vue");
 
@@ -19,7 +19,7 @@ Vue.use(VueRouter);
 const app = new Vue({
     el: "#app",
     router, // (縮寫) 相當於 router: router
-    comments: {
+    components: {
         index: Index
     }
 });
