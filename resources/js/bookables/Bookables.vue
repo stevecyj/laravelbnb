@@ -7,7 +7,12 @@
         ></bookable-list-item>
         <bookable-list-item
             :item-title="bookable2.title"
-            :item-content="bookable2.content""
+            :item-content="bookable2.content"
+            :price="3000"
+        ></bookable-list-item>
+        <bookable-list-item
+            :item-title="bookable3.title"
+            :item-content="bookable3.content"
             :price="3000"
         ></bookable-list-item>
     </div>
@@ -22,14 +27,8 @@ export default {
     },
     data() {
         return {
-            bookable1: {
-                title: "Cheap Villa",
-                content: "A very cheap villa"
-            },
-            bookable2: {
-                title: "Cheap Villa 2",
-                content: "A very cheap villa 2"
-            }
+            bookable1: null,
+            bookable2: null
         };
     },
     // beforeCreate() {
@@ -42,9 +41,29 @@ export default {
 
         //模擬請求
         setTimeout(() => {
-          this.bookable1.title = "超貴的 Villa";
-          this.bookable2.title = "超超超超貴的 Villa";
-        },3000)
+            this.bookable1 = {
+                title: "很貴的Villa!!!",
+                content: "一間很貴的Villa!!!"
+            };
+            this.bookable2 = {
+                title: "很貴的Villa 2!!!",
+                content: "一間很貴的Villa 2!!!"
+            };
+            this.bookable3 = {
+                title: "超貴的Villa 3!!!",
+                content: "一間超貴的Villa 3!!!"
+            };
+        }, 3000);
+
+        setTimeout(() => {
+            console.log("1st change");
+            this.bookable1.title = "You will see this!";
+        }, 5000);
+
+        setTimeout(() => {
+            console.log("2nd change");
+            this.bookable3.title = "You wont see this!";
+        }, 7000);
     },
     // beforeMount() {
     //     console.log("before mount");
