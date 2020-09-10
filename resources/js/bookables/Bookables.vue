@@ -1,5 +1,6 @@
 <template>
     <div>
+        Rows is: {{ rows }}
         <div v-if="loading">
             Data is loading ...
         </div>
@@ -25,8 +26,16 @@ export default {
     data() {
         return {
             bookables: null,
-            loading: false
+            loading: false,
+            columns: 3
         };
+    },
+    computed: {
+        rows() {
+            return this.bookables === null
+                ? 0
+                : Math.ceil(this.bookables.length / this.columns);
+        }
     },
 
     created() {
@@ -38,6 +47,31 @@ export default {
                     id: 1,
                     title: "便宜的Villa!!!",
                     content: "一間便宜的Villa!!!"
+                },
+                {
+                    id: 2,
+                    title: "便宜的Villa 2!!!",
+                    content: "一間便宜的Villa 2!!!"
+                },
+                {
+                    id: 2,
+                    title: "便宜的Villa 2!!!",
+                    content: "一間便宜的Villa 2!!!"
+                },
+                {
+                    id: 2,
+                    title: "便宜的Villa 2!!!",
+                    content: "一間便宜的Villa 2!!!"
+                },
+                {
+                    id: 2,
+                    title: "便宜的Villa 2!!!",
+                    content: "一間便宜的Villa 2!!!"
+                },
+                {
+                    id: 2,
+                    title: "便宜的Villa 2!!!",
+                    content: "一間便宜的Villa 2!!!"
                 },
                 {
                     id: 2,
