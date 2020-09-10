@@ -1962,6 +1962,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -37716,7 +37721,7 @@ var render = function() {
           _vm._l(_vm.rows, function(row) {
             return _c(
               "div",
-              { key: "row" + row, staticClass: "row" },
+              { key: "row" + row, staticClass: "row mb-4" },
               [
                 _vm._l(_vm.bookablesInRow(row), function(bookable, column) {
                   return _c(
@@ -37734,11 +37739,13 @@ var render = function() {
                     1
                   )
                 }),
-                _vm._v(
-                  "\n            " +
-                    _vm._s(_vm.placeholdersInRow(row)) +
-                    "\n        "
-                )
+                _vm._v(" "),
+                _vm._l(_vm.placeholdersInRow(row), function(p) {
+                  return _c("div", {
+                    key: "placeholder" + row + p,
+                    staticClass: "col"
+                  })
+                })
               ],
               2
             )

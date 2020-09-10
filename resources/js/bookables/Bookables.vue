@@ -5,7 +5,7 @@
             Data is loading ...
         </div>
         <div v-else>
-            <div class="row" v-for="row in rows" :key="'row' + row">
+            <div class="row mb-4" v-for="row in rows" :key="'row' + row">
                 <div
                     class="col"
                     v-for="(bookable, column) in bookablesInRow(row)"
@@ -17,7 +17,12 @@
                         :price="1000"
                     ></bookable-list-item>
                 </div>
-                {{ placeholdersInRow(row) }}
+                <!-- {{ placeholdersInRow(row) }} -->
+                <div
+                    class="col"
+                    v-for="p in placeholdersInRow(row)"
+                    :key="'placeholder' + row + p"
+                ></div>
             </div>
         </div>
     </div>
