@@ -63,6 +63,19 @@ export default {
 
     created() {
         this.loading = true;
+
+        const p = new Promise((resolve, reject) => {
+            console.log(resolve);
+            console.log(reject);
+            setTimeout(() => {
+                resolve("Hello");
+            }, 3000);
+        })
+            .then(result => console.log(`Success ${result}`))
+            .catch(result => console.log(`Erroe ${result}`));
+
+        console.log(p);
+
         //模擬請求
         setTimeout(() => {
             this.bookables = [

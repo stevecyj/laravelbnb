@@ -1995,7 +1995,19 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    this.loading = true; //模擬請求
+    this.loading = true;
+    var p = new Promise(function (resolve, reject) {
+      console.log(resolve);
+      console.log(reject);
+      setTimeout(function () {
+        resolve("Hello");
+      }, 3000);
+    }).then(function (result) {
+      return console.log("Success ".concat(result));
+    })["catch"](function (result) {
+      return console.log("Erroe ".concat(result));
+    });
+    console.log(p); //模擬請求
 
     setTimeout(function () {
       _this.bookables = [{
