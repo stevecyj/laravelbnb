@@ -1920,7 +1920,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     itemTitle: String,
-    itemContent: String,
+    itemDescription: String,
     price: Number
   }
 });
@@ -1995,52 +1995,62 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    this.loading = true;
-    var p = new Promise(function (resolve, reject) {
-      console.log(resolve);
-      console.log(reject);
-      setTimeout(function () {
-        resolve("Hello");
-      }, 3000);
-    }).then(function (result) {
-      return console.log("Success ".concat(result));
-    })["catch"](function (result) {
-      return console.log("Erroe ".concat(result));
-    });
-    console.log(p); //模擬請求
+    this.loading = true; // const p = new Promise((resolve, reject) => {
+    //     console.log(resolve);
+    //     console.log(reject);
+    //     setTimeout(() => {
+    //         resolve("Hello");
+    //     }, 3000);
+    // })
+    //     .then(result => console.log(`Success ${result}`))
+    //     .catch(result => console.log(`Erroe ${result}`));
+    // console.log(p);
 
-    setTimeout(function () {
-      _this.bookables = [{
-        id: 1,
-        title: "便宜的Villa!!!",
-        content: "一間便宜的Villa!!!"
-      }, {
-        id: 2,
-        title: "便宜的Villa 2!!!",
-        content: "一間便宜的Villa 2!!!"
-      }, {
-        id: 2,
-        title: "便宜的Villa 2!!!",
-        content: "一間便宜的Villa 2!!!"
-      }, {
-        id: 2,
-        title: "便宜的Villa 2!!!",
-        content: "一間便宜的Villa 2!!!"
-      }, {
-        id: 2,
-        title: "便宜的Villa 2!!!",
-        content: "一間便宜的Villa 2!!!"
-      }, {
-        id: 2,
-        title: "便宜的Villa 2!!!",
-        content: "一間便宜的Villa 2!!!"
-      }, {
-        id: 2,
-        title: "便宜的Villa 2!!!",
-        content: "一間便宜的Villa 2!!!"
-      }];
+    var request = axios.get("/laravelbnb/public/api/bookables").then(function (response) {
+      _this.bookables = response.data;
       _this.loading = false;
-    }, 2000);
+    });
+    console.log(request); //模擬請求
+    // setTimeout(() => {
+    //     this.bookables = [
+    //         {
+    //             id: 1,
+    //             title: "便宜的Villa!!!",
+    //             content: "一間便宜的Villa!!!"
+    //         },
+    //         {
+    //             id: 2,
+    //             title: "便宜的Villa 2!!!",
+    //             content: "一間便宜的Villa 2!!!"
+    //         },
+    //         {
+    //             id: 2,
+    //             title: "便宜的Villa 2!!!",
+    //             content: "一間便宜的Villa 2!!!"
+    //         },
+    //         {
+    //             id: 2,
+    //             title: "便宜的Villa 2!!!",
+    //             content: "一間便宜的Villa 2!!!"
+    //         },
+    //         {
+    //             id: 2,
+    //             title: "便宜的Villa 2!!!",
+    //             content: "一間便宜的Villa 2!!!"
+    //         },
+    //         {
+    //             id: 2,
+    //             title: "便宜的Villa 2!!!",
+    //             content: "一間便宜的Villa 2!!!"
+    //         },
+    //         {
+    //             id: 2,
+    //             title: "便宜的Villa 2!!!",
+    //             content: "一間便宜的Villa 2!!!"
+    //         }
+    //     ];
+    //     this.loading = false;
+    // }, 2000);
   }
 });
 
@@ -37698,7 +37708,9 @@ var render = function() {
     _c("div", { staticClass: "card-body" }, [
       _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.itemTitle))]),
       _vm._v(" "),
-      _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.itemContent))])
+      _c("p", { staticClass: "card-text" }, [
+        _vm._v(_vm._s(_vm.itemDescription))
+      ])
     ])
   ])
 }
@@ -37743,7 +37755,7 @@ var render = function() {
                       _c("bookable-list-item", {
                         attrs: {
                           "item-title": bookable.title,
-                          "item-content": bookable.content,
+                          "item-description": bookable.description,
                           price: 1000
                         }
                       })

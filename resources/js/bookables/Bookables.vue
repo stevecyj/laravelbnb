@@ -13,7 +13,7 @@
                 >
                     <bookable-list-item
                         :item-title="bookable.title"
-                        :item-content="bookable.content"
+                        :item-description="bookable.description"
                         :price="1000"
                     ></bookable-list-item>
                 </div>
@@ -64,59 +64,67 @@ export default {
     created() {
         this.loading = true;
 
-        const p = new Promise((resolve, reject) => {
-            console.log(resolve);
-            console.log(reject);
-            setTimeout(() => {
-                resolve("Hello");
-            }, 3000);
-        })
-            .then(result => console.log(`Success ${result}`))
-            .catch(result => console.log(`Erroe ${result}`));
+        // const p = new Promise((resolve, reject) => {
+        //     console.log(resolve);
+        //     console.log(reject);
+        //     setTimeout(() => {
+        //         resolve("Hello");
+        //     }, 3000);
+        // })
+        //     .then(result => console.log(`Success ${result}`))
+        //     .catch(result => console.log(`Erroe ${result}`));
 
-        console.log(p);
+        // console.log(p);
+
+        const request = axios
+            .get("/laravelbnb/public/api/bookables")
+            .then(response => {
+                this.bookables = response.data;
+                this.loading = false;
+            });
+        console.log(request);
 
         //模擬請求
-        setTimeout(() => {
-            this.bookables = [
-                {
-                    id: 1,
-                    title: "便宜的Villa!!!",
-                    content: "一間便宜的Villa!!!"
-                },
-                {
-                    id: 2,
-                    title: "便宜的Villa 2!!!",
-                    content: "一間便宜的Villa 2!!!"
-                },
-                {
-                    id: 2,
-                    title: "便宜的Villa 2!!!",
-                    content: "一間便宜的Villa 2!!!"
-                },
-                {
-                    id: 2,
-                    title: "便宜的Villa 2!!!",
-                    content: "一間便宜的Villa 2!!!"
-                },
-                {
-                    id: 2,
-                    title: "便宜的Villa 2!!!",
-                    content: "一間便宜的Villa 2!!!"
-                },
-                {
-                    id: 2,
-                    title: "便宜的Villa 2!!!",
-                    content: "一間便宜的Villa 2!!!"
-                },
-                {
-                    id: 2,
-                    title: "便宜的Villa 2!!!",
-                    content: "一間便宜的Villa 2!!!"
-                }
-            ];
-            this.loading = false;
-        }, 2000);
+        // setTimeout(() => {
+        //     this.bookables = [
+        //         {
+        //             id: 1,
+        //             title: "便宜的Villa!!!",
+        //             content: "一間便宜的Villa!!!"
+        //         },
+        //         {
+        //             id: 2,
+        //             title: "便宜的Villa 2!!!",
+        //             content: "一間便宜的Villa 2!!!"
+        //         },
+        //         {
+        //             id: 2,
+        //             title: "便宜的Villa 2!!!",
+        //             content: "一間便宜的Villa 2!!!"
+        //         },
+        //         {
+        //             id: 2,
+        //             title: "便宜的Villa 2!!!",
+        //             content: "一間便宜的Villa 2!!!"
+        //         },
+        //         {
+        //             id: 2,
+        //             title: "便宜的Villa 2!!!",
+        //             content: "一間便宜的Villa 2!!!"
+        //         },
+        //         {
+        //             id: 2,
+        //             title: "便宜的Villa 2!!!",
+        //             content: "一間便宜的Villa 2!!!"
+        //         },
+        //         {
+        //             id: 2,
+        //             title: "便宜的Villa 2!!!",
+        //             content: "一間便宜的Villa 2!!!"
+        //         }
+        //     ];
+        //     this.loading = false;
+        // }, 2000);
     }
 };
 </script>
