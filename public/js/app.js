@@ -2006,7 +2006,7 @@ __webpack_require__.r(__webpack_exports__);
     //     .catch(result => console.log(`Erroe ${result}`));
     // console.log(p);
 
-    var request = axios.get("/laravelbnb/public/api/bookables").then(function (response) {
+    var request = axios.get("/api/bookables").then(function (response) {
       _this.bookables = response.data;
 
       _this.bookables.push({
