@@ -7,7 +7,7 @@
         <div v-else>
             <div class="row mb-4" v-for="row in rows" :key="'row' + row">
                 <div
-                    class="col"
+                    class="col d-flex align-items-stretch"
                     v-for="(bookable, column) in bookablesInRow(row)"
                     :key="'row' + row + column"
                 >
@@ -80,6 +80,7 @@ export default {
             .get("/laravelbnb/public/api/bookables")
             .then(response => {
                 this.bookables = response.data;
+                this.bookables.push({ title: "x", description: "y" });
                 this.loading = false;
             });
         console.log(request);
