@@ -28,3 +28,6 @@ Route::get('bookables/{id}', function (Request $request, $bookableId) {
   // dd($bookableId);
     return Bookable::findOrFail($bookableId);
 });
+
+// Route::get('bookables','Api\BookableController@index');
+// Route::get('bookables/{id}','Api\BookableController@show');
