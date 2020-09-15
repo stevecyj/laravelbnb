@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Bookable;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,14 +19,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // 新增 bookables 路由
-Route::get('bookables', function (Request $request){
-    return Bookable::all();
-});
+// Route::get('bookables', function (Request $request){
+//     return Bookable::all();
+// });
 
-Route::get('bookables/{id}', function (Request $request, $bookableId) {
-  // dd($bookableId);
-    return Bookable::findOrFail($bookableId);
-});
+// Route::get('bookables/{id}', function (Request $request, $bookableId) {
+//   // dd($bookableId);
+//     return Bookable::findOrFail($bookableId);
+// });
 
-// Route::get('bookables','Api\BookableController@index');
-// Route::get('bookables/{id}','Api\BookableController@show');
+// 把邏輯放到 controller
+Route::get('bookables','Api\BookableController@index');
+Route::get('bookables/{id}','Api\BookableController@show');
