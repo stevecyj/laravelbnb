@@ -29,5 +29,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // });
 
 // 把邏輯放到 controller
-Route::get('bookables','Api\BookableController@index');
-Route::get('bookables/{id}','Api\BookableController@show');
+// Route::get('bookables','Api\BookableController@index');
+// Route::get('bookables/{id}','Api\BookableController@show');
+
+Route::apiResource('bookables','Api\BookableController')->only(['index','show']);
