@@ -38502,7 +38502,15 @@ var render = function() {
           },
           domProps: { value: _vm.from },
           on: {
-            keyup: _vm.check,
+            keyup: function($event) {
+              if (
+                !$event.type.indexOf("key") &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              return _vm.check($event)
+            },
             input: function($event) {
               if ($event.target.composing) {
                 return
@@ -38534,7 +38542,15 @@ var render = function() {
           },
           domProps: { value: _vm.to },
           on: {
-            keyup: _vm.check,
+            keyup: function($event) {
+              if (
+                !$event.type.indexOf("key") &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              return _vm.check($event)
+            },
             input: function($event) {
               if ($event.target.composing) {
                 return

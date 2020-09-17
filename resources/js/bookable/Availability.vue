@@ -13,7 +13,7 @@
                     class="form-control form-control-sm"
                     placeholder="Start date"
                     v-model="from"
-                    @keyup="check"
+                    @keyup.enter="check"
                 />
             </div>
             <div class="form-group col-md-6">
@@ -25,7 +25,7 @@
                     class="form-control form-control-sm"
                     placeholder="End date"
                     v-model="to"
-                    @keyup="check"
+                    @keyup.enter="check"
                 />
             </div>
         </div>
