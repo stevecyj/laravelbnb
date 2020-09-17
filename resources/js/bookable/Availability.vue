@@ -40,14 +40,14 @@ export default {
     data() {
         return {
             from: null,
-            to: null
+            to: null,
         };
     },
     methods: {
         check() {
             alert("I will check something now !");
-        }
-    }
+        },
+    },
 };
 </script>
 

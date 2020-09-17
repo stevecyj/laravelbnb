@@ -8,24 +8,24 @@ const routes = [
     {
         path: "/",
         component: Bookables,
-        name: "home"
+        name: "home",
     },
     {
         path: "/bookable/:id",
         component: Bookable,
-        name: "bookable"
+        name: "bookable",
     },
     {
         path: "/test/:id",
         component: Test,
-        name: "test"
-    }
+        name: "test",
+    },
 ];
 
 const router = new VueRouter({
     mode: "history",
     routes, // (縮寫) 相當於 routes: routes
-    base: "/laravelbnb/public/"
+    base: "/laravelbnb/public/",
 });
 
 export default router;

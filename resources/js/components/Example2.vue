@@ -5,9 +5,7 @@
                 <div class="card">
                     <div class="card-header">Second Component</div>
 
-                    <div class="card-body">
-                        I'm a Second component.
-                    </div>
+                    <div class="card-body">I'm a Second component.</div>
                 </div>
             </div>
         </div>
@@ -18,6 +16,6 @@
 export default {
     mounted() {
         console.log("Component2 mounted.");
-    }
+    },
 };
 </script>

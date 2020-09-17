@@ -20,6 +20,6 @@ const app = new Vue({
     el: "#app",
     router, // (縮寫) 相當於 router: router
     components: {
-        index: Index
-    }
+        index: Index,
+    },
 });

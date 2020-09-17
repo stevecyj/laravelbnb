@@ -21,7 +21,7 @@ export default {
     data() {
         return {
             bookable: null,
-            loading: false
+            loading: false,
         };
     },
     created() {
@@ -31,10 +31,10 @@ export default {
 
         axios
             .get(`/laravelbnb/public/api/bookables/${this.$route.params.id}`)
-            .then(response => {
+            .then((response) => {
                 this.bookable = response.data;
                 this.loading = false;
             });
-    }
+    },
 };
 </script>

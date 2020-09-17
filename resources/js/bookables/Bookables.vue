@@ -1,9 +1,7 @@
 <template>
     <div>
         Rows is: {{ rows }}
-        <div v-if="loading">
-            Data is loading ...
-        </div>
+        <div v-if="loading">Data is loading ...</div>
         <div v-else>
             <div class="row mb-4" v-for="row in rows" :key="'row' + row">
                 <div
@@ -29,13 +27,13 @@ import BookableListItem from "./BookableListItem";
 
 export default {
     components: {
-        BookableListItem
+        BookableListItem,
     },
     data() {
         return {
             bookables: null,
             loading: false,
-            columns: 3
+            columns: 3,
         };
     },
     computed: {
@@ -43,7 +41,7 @@ export default {
             return this.bookables === null
                 ? 0
                 : Math.ceil(this.bookables.length / this.columns);
-        }
+        },
     },
     methods: {
         bookablesInRow(row) {
@@ -54,7 +52,7 @@ export default {
         },
         placeholdersInRow(row) {
             return this.columns - this.bookablesInRow(row).length;
-        }
+        },
     },
 
     created() {
@@ -74,7 +72,7 @@ export default {
 
         const request = axios
             .get("/laravelbnb/public/api/bookables")
-            .then(response => {
+            .then((response) => {
                 this.bookables = response.data;
                 this.bookables.push({ title: "x", description: "y" });
                 this.loading = false;
@@ -122,6 +120,6 @@ export default {
         //     ];
         //     this.loading = false;
         // }, 2000);
-    }
+    },
 };
 </script>
