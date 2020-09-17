@@ -5,21 +5,16 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Bookable;
-// 路徑確認有沒有正確
-use App\Http\Resources\BookableIndexResource;
-use App\Http\Resources\BookableShowResource;
 
 class BookableController extends Controller
 {
     public function index()
     {
-      return BookableIndexResource::collection(
-        Bookable::all()
-      );
+      return Bookable::all();
     }
 
     public function show($id)
     {
-      return new BookableShowResource(Bookable::findOrFail($id));
+      return Bookable::findOrFail($id);
     }
 }
