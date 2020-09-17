@@ -11,6 +11,15 @@
 
 <script>
 export default {
+    data() {
+        return {
+            isloading: false,
+        };
+    },
+
     props: { title: String, description: String, id: Number },
+    mounted() {
+        this.loading = true;
+    },
 };
 </script>

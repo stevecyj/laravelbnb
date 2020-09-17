@@ -77,7 +77,7 @@ export default {
                 this.bookables.push({ title: "x", description: "y" });
                 this.loading = false;
             });
-        console.log(request);
+        // console.log(request);
 
         //模擬請求
         // setTimeout(() => {
