@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Bookable;
-use App\Resources\BookableIndexResource;
-use App\Resources\BookableShowResource;
+// 路徑確認有沒有正確
+use App\Http\Resources\BookableIndexResource;
+use App\Http\Resources\BookableShowResource;
 
 class BookableController extends Controller
 {

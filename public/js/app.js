@@ -2053,6 +2053,7 @@ __webpack_require__.r(__webpack_exports__);
     // console.log(p);
 
     var request = axios.get("/laravelbnb/public/api/bookables").then(function (response) {
+      console.log(response.data);
       _this.bookables = response.data;
 
       _this.bookables.push({
@@ -2061,8 +2062,8 @@ __webpack_require__.r(__webpack_exports__);
       });
 
       _this.loading = false;
-    });
-    console.log(request); //模擬請求
+    }); // console.log(request);
+    //模擬請求
     // setTimeout(() => {
     //     this.bookables = [
     //         {

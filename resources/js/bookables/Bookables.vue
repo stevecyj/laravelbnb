@@ -75,11 +75,12 @@ export default {
         const request = axios
             .get("/laravelbnb/public/api/bookables")
             .then(response => {
+                console.log(response.data);
                 this.bookables = response.data;
                 this.bookables.push({ title: "x", description: "y" });
                 this.loading = false;
             });
-        console.log(request);
+        // console.log(request);
 
         //模擬請求
         // setTimeout(() => {
