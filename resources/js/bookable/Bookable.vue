@@ -3,21 +3,27 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <div v-if="loading">
-                      Loading...
-                    </div>
-                    <div v-else><h2>{{ bookable.title }}</h2>
+                    <div v-if="loading">Loading...</div>
+                    <div v-else>
+                        <h2>{{ bookable.title }}</h2>
                         <hr />
-                    <article>{{ bookable.description }}</article></div>
+                        <article>{{ bookable.description }}</article>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">availability & prices</div>
+        <div class="col-md-4">
+            <availability></availability>
+        </div>
     </div>
 </template>
 
 <script>
+import Availability from "./Availability";
 export default {
+    components: {
+        Availability,
+    },
     data() {
         return {
             bookable: null,
